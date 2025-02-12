@@ -19,41 +19,35 @@ char	*ft_strcapitalize(char *str)
 
 	i = 0;
 	start = 1; 
-	while(str)
+	while(str[i] != '\0' )
 	{
-		if((str[i] > 97 && str[i] < 122) && (str[i] > 65 && str[i] < 90) || (str[i] > '0' && str[i] < '9'))
+		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= '0' && str[i] <= '9'))
 		{
-			if(str[i] > 97 && str[i] < 122 && start)
+			if(start && str[i] > 'a' && str[i] < 'z' && start)
 			{
 				str[i] -= 32;
-				i++;
-				start = 0; 
-				if(str[i] > 97 && str[i] < 122)
-				{
-					str -=32;
-				
-				}
-				
 			}
-			else
+			else if(!start && (str[i] >= 'A' && str[i] <= 'Z'))
 			{
-				start = 0;
-				i++; 
+				str[i] += 32;
 			}
-		}
-		else if((str[i] == 32 && str[i] == ) ())
-		{
 			start = 0;
-			i++; 
 		}
+		else 
+		{
+			start = 1;
+		}
+		i++; 
 	}
 	return (str);
 }
 
 int	main(void)
 {
-	char test = "Qerqopeiru rqeporiuIqr qQRE5 qer"; 
-
-	char dest = ft_strcapitalize(test);
-	printf("%s", dest);
+	char test[] = "QerqopeERQERQ rqeporiuIqr qQRE5 qer";
+	
+	printf("Before %s \n", test);
+	ft_strcapitalize(test);
+	printf("After %s \n", test);
+	return (0);
 }
