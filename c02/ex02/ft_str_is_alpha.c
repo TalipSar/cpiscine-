@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 08:20:21 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/11 09:29:42 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/10 14:57:56 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/11 11:41:29 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
-//#include <stdio.h>
-
-void	ft_ultimate_ft(int *********nbr)
+int	ft_str_is_alpha(char *str)
 {
-	*********nbr = 42;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] >= 65 && str[i] <= 90) || (str[i] <= 122 && str[i] >= 97))
+		{
+			i++;
+		}
+		else
+			return (0);
+	}
+	return (1);
 }
 /*
-int	main(void){
-	int a = 50; 
-	int *b = &a; 
-	int **c = &b; 
-	int ***d = &c; 
-	int ****e = &d; 
-	int *****f = &e; 
-	int ******g = &f;
-	int *******h = &g;
-	int ********i = &h;
-	int *********j = &i;
-
-	ft_ultimate_ft(&i);
-	printf("%d\n", a);
+int	main(void)
+{
+	int 	result;
+	char zord[] = "Sal0ut";
+	result = ft_str_is_alpha(zord);
+	printf("%d", result);
 }
 */

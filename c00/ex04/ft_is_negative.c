@@ -1,15 +1,15 @@
-/
-************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaritas <tsaritas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 15:52:48 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/05 16:10:10 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/10 10:10:56 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/11 08:05:48 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_is_negative(int a)
@@ -25,6 +25,10 @@ void	ft_is_negative(int a)
 	{
 		write(1, &n, 1);
 	}
+	else if (a == -2147483648)
+	{
+		write(1, &n, 1);
+	}
 	else
 	{
 		write(1, &p, 1);
@@ -34,8 +38,9 @@ void	ft_is_negative(int a)
 int	main(void)
 {
 	ft_is_negative(5);
-	ft_is_negative(-9);
+	ft_is_negative(-555555);
 	ft_is_negative(0);
-	ft_is_negative(-100);
+	ft_is_negative(-21474838);
 	ft_is_negative(-1);
-}*/
+}
+*/

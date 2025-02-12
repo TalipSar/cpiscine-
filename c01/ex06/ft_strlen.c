@@ -1,26 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/10 08:57:17 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/11 08:54:21 by tsaritas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-	return;
+	return ;
 }
 
 void	ft_putnbr(int nb)
 {
-
 	char	str[12];
-	int	i;
-	int	is_negative;
+	int		i;
+	int		is_negative;
 
 	i = 0;
 	is_negative = 0;
-
 	if (nb == 0)
-	{
 		ft_putchar('0');
-	}
 	else if (nb < 0)
 	{
 		ft_putchar('-');
@@ -32,9 +39,7 @@ void	ft_putnbr(int nb)
 		nb = nb / 10;
 	}
 	if (is_negative)
-	{
 		str[i++] = '-';
-	}
 	while (-- i >= 0)
 	{
 		ft_putchar(str[i]);
@@ -47,16 +52,18 @@ int	ft_strlen(char *str)
 
 	i = 0;
 	while (str[i])
-	{	
+	{
 		i++;
 	}
 	ft_putnbr(i);
 }
-
+/*
 int	main(void)
 {
-	char *str;
+	char	*str;
+
 	str = "salutation";
 	ft_strlen(str);
 	return (0);
 }
+*/

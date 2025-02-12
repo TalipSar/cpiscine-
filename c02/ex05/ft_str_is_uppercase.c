@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaritas <tsaritas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 14:41:11 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/10 10:08:06 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/11 13:16:44 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/11 13:26:17 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_print_numbers(void)
+int	ft_str_is_uppercase(char *str)
 {
-	char	n;
+	int	i;
 
-	n = '0';
-	while (n <= '9')
+	i = 0;
+	while (str[i] != '\0')
 	{
-		write(1, &n, 1);
-		n++;
+		if (str[i] <= 90 && str[i] >= 65)
+		{
+			i++;
+		}
+		else
+			return (0);
 	}
+	return (1);
 }
 /*
 int	main(void)
 {
-	ft_print_numbers();
+	int 	result;
+	char zord[] = "";
+	result = ft_str_is_uppercase(zord);
+	printf("%d", result);
 }
 */

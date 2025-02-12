@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/08 16:09:27 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/08 16:15:24 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/12 08:21:29 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/12 10:43:29 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_putchar(char c)
+char	ft_strlowcase(char *str)
 {
-	write(1, &c, 1);
+	while (*str != '\0')
+	{
+		if (*str >= 'A' && *str <= 'Z')
+		{
+			*str = *str + 32;
+		}
+		str++;
+	}
+	return (*str);
 }
+/*
+int	main(void)
+{
+	char zord[] = "petitGRANDpetitzou";
+	ft_strlowcase(zord);
+	printf("%s", zord);
+	return (0);
+}
+*/

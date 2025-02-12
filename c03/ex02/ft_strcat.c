@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaritas <tsaritas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 14:41:11 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/10 10:08:06 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/11 16:04:43 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/12 09:27:19 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_numbers(void)
+char	*ft_strcat(char *dest, char *src)
 {
-	char	n;
 
-	n = '0';
-	while (n <= '9')
-	{
-		write(1, &n, 1);
-		n++;
-	}
 }
-/*
-int	main(void)
-{
-	ft_print_numbers();
-}
-*/

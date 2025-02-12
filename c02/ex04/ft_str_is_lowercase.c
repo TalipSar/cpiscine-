@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 08:20:21 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/11 09:29:42 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/11 11:36:01 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/11 13:15:42 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+// #include <stdio.h>
 
-void	ft_ultimate_ft(int *********nbr)
+int	ft_str_is_lowercase(char *str)
 {
-	*********nbr = 42;
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] <= 122 && str[i] >= 97)
+		{
+			i++;
+		}
+		else
+			return (0);
+	}
+	return (1);
 }
 /*
-int	main(void){
-	int a = 50; 
-	int *b = &a; 
-	int **c = &b; 
-	int ***d = &c; 
-	int ****e = &d; 
-	int *****f = &e; 
-	int ******g = &f;
-	int *******h = &g;
-	int ********i = &h;
-	int *********j = &i;
+int	main(void)
+{
+	int 	result;
+	char zord[] = "sQut";
+	result = ft_str_is_lowercase(zord);
+	printf("%d", result);
+	
 
-	ft_ultimate_ft(&i);
-	printf("%d\n", a);
 }
 */

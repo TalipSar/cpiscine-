@@ -6,7 +6,7 @@
 /*   By: tsaritas <tsaritas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 17:05:20 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/06 15:07:54 by tsaritas         ###   ########.fr       */
+/*   Updated: 2025/02/10 09:59:51 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
+/*
 int	main(void)
 {
 	char a;
 
-	a = 'c'; 
-	ft_putchar(a); 
-	write(1, &a, 1);
+	a = 'c';
+	ft_putchar(a);
 }
+*/

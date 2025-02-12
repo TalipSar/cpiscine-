@@ -6,22 +6,21 @@
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:10:31 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/06 14:28:00 by tsaritas         ###   ########.fr       */
+/*   Updated: 2025/02/11 08:24:46 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
 void	ft_swap(int *a, int *b)
 {
-	int temp;
+	int	temp;
 
 	temp = *a;
 	*a = *b;
 	*b = temp;
-
-
 }
+/*
 int	main(void)
 {
 	int i = 50;
@@ -31,3 +30,4 @@ int	main(void)
 	printf("%d\n", i);
 	printf("%d\n", j);
 }
+*/

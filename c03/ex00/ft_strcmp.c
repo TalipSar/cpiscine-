@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaritas <tsaritas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 14:41:11 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/10 10:08:06 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/11 14:32:22 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/12 09:24:54 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <stdio.h>
 
-void	ft_print_numbers(void)
+int	ft_strcmp(char *s1, char *s2)
 {
-	char	n;
+	int	i;
 
-	n = '0';
-	while (n <= '9')
+	i = 0;
+	while (s1[i] && s2[i])
 	{
-		write(1, &n, 1);
-		n++;
+		if (s1[i] != s2[i])
+		{
+			return (s1[i] - s2[i]);
+		}
+		i++;
 	}
+	return (s1[i] - s2[i]);
 }
 /*
 int	main(void)
 {
-	ft_print_numbers();
+	char	s1[] = "CCC";
+	char	s2[] = "ZZZ"; 
+	int i =	ft_strcmp(s1, s2);
+	printf("%d", i);
 }
 */

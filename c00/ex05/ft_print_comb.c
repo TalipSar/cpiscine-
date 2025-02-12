@@ -1,57 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 08:38:44 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/11 08:44:42 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/07 09:17:06 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/11 08:41:01 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_print_comb(void)
 {
-	write(1, &c, 1);
-}
+	char	i;
+	char	j;
+	char	k;
 
-void	ft_putnbr(int nb)
-{
-	int		i;
-	int		is_negative;
-	char	str[12];
-
-	i = 0;
-	is_negative = 0;
-	if (nb == 0)
-		ft_putchar('0');
-	else if (nb < 0)
+	i = '0';
+	j = '1';
+	k = '2';
+	while (i <= '7')
 	{
-		ft_putchar('-');
-		nb = -nb;
+		while (j <= '8')
+		{
+			while (k <= '9')
+			{
+				write(1, &i, 1);
+				write(1, &j, 1);
+				write(1, &k, 1);
+				write(1, ", ", 2);
+				k++;
+			}
+			k = j;
+			j++;
+		}
+		j = i;
+		i++;
 	}
-	while (nb > 0)
-	{
-		str[i++] = nb % 10 + '0';
-		nb = nb / 10;
-	}
-	if (is_negative)
-	{
-		str[i++] = '-';
-	}
-	while (-- i >= 0)
-		ft_putchar(str[i]);
 }
 
 int	main(void)
 {
-	int	i;
-
-	i = 0;
-	ft_putnbr(i);
-	ft_putnbr(6);
-	ft_putnbr(-156);
+	ft_print_comb();
 }
 

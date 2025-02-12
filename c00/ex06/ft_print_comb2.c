@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 08:38:44 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/11 08:44:42 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/07 09:17:06 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/11 08:43:44 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,43 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_print_comb(void)
 {
-	int		i;
-	int		is_negative;
-	char	str[12];
+	char	i;
+	char	j;
 
-	i = 0;
-	is_negative = 0;
-	if (nb == 0)
-		ft_putchar('0');
-	else if (nb < 0)
+	i = '0';
+	j = '1';
+	while (i <= '9')
 	{
-		ft_putchar('-');
-		nb = -nb;
+		while (j <= '9')
+		{
+			write(1, "00 ", 3);
+			write(1, &i, 1);
+			write(1, &j, 1);
+			write(1, ", ", 2);
+			j++;
+		}
+		j = i;
+		if (i != 9)
+		{
+			i++;
+		}
+		else
+		{
+			i = 0;
+		}
 	}
-	while (nb > 0)
-	{
-		str[i++] = nb % 10 + '0';
-		nb = nb / 10;
-	}
-	if (is_negative)
-	{
-		str[i++] = '-';
-	}
-	while (-- i >= 0)
-		ft_putchar(str[i]);
+}
+
+void	ft_print_comb2(void)
+{
+	ft_print_comb();
+	ft_print_comb();
 }
 
 int	main(void)
 {
-	int	i;
-
-	i = 0;
-	ft_putnbr(i);
-	ft_putnbr(6);
-	ft_putnbr(-156);
+	ft_print_comb2();
 }
 
