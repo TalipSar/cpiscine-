@@ -1,18 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   grid.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sinlee <sinlee@student42.fr>               +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/01 15:17:55 by sinlee            #+#    #+#             */
-/*   Updated: 2023/04/02 17:15:27 by sinlee           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-// Pointers: 8 bytes
-// 0: row, 1: column
-
 void	print_criteria(int arr[4][4]);
 
 void	inc_asign(int grid[4][4], int constant, int roworcolumn, int inc_or_dec)
@@ -57,9 +42,6 @@ void	asign_one(int grid[4][4], int i, int j)
 
 void	asign(int grid[4][4], int *i, int *j, int arr[4][4])
 {
-//	int	z;
-
-//	z = -1;
 	if (arr[*i][*j] == 1)
 		asign_one(grid, *i, *j);
 	else if (*i == 0)
