@@ -9,7 +9,8 @@ int	*ft_range(int min, int max)
 		array = NULL;
 		return (array);
 	}
-	if (!(array = malloc(sizeof(int) * max - min)))
+	array = malloc(sizeof(int) * max - min);
+	if (array == NULL)
 	{
 		return (NULL);
 	}
@@ -19,7 +20,8 @@ int	*ft_range(int min, int max)
 		max--;
 	}
 	return (array);
-}/*
+}
+/*
 int main(void)
 {
     int *range;
@@ -37,7 +39,6 @@ int main(void)
 		 i++;
 	    }
 	    printf("\n");
-	    free(range);
     }
     else
     {
