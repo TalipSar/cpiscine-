@@ -109,4 +109,3 @@ void	solve(int arr[4][4])
 	else
 		write(1, "Error", 5);
 }
-

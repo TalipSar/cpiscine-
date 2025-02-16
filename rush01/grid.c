@@ -72,4 +72,3 @@ void	init_grid(int arr[4][4], int grid[4][4])
 		}
 	}
 }
-
