@@ -6,23 +6,26 @@
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 08:21:29 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/12 10:43:29 by tsaritas         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:48:26 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	ft_strlowcase(char *str)
+char	*ft_strlowcase(char *str)
 {
-	while (*str != '\0')
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (*str >= 'A' && *str <= 'Z')
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
-			*str = *str + 32;
+			str[i] = str[i] + 32;
 		}
-		str++;
+		i++;
 	}
-	return (*str);
+	return (str);
 }
 /*
 int	main(void)

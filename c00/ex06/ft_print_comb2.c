@@ -6,7 +6,7 @@
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 09:17:06 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/11 08:43:44 by tsaritas         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:40:41 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	ft_print_comb2(void)
 	ft_print_comb();
 	ft_print_comb();
 }
-
+/*
 int	main(void)
 {
 	ft_print_comb2();
 }
-
+*/
