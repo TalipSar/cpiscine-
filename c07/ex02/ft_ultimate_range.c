@@ -1,31 +1,31 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	*ft_ultimate_range(int, **range, int min, int max)
+int	*ft_ultimate_range(int **range, int min, int max)
 {
 	int	*array;
+	int	i;
+
 	if(min >= max)
 	{
-		array = NULL;
-		range = NULL;
-		return (0);
-	}
-	array = malloc(sizeof(int) * max - min);
-	if (array == NULL)
-	{
+		*range = NULL;
 		return (NULL);
 	}
-	while (max > min)
+	array = malloc(sizeof(int) * (max - min));
+	if (array == NULL)
 	{
-		array[max - min - 1] = max - 1;
-		max--;
-		range++;
+		*range = NULL;
+		return (NULL);
 	}
-	if (range == null)
+	i = 0;
+	while (min < max)
 	{
-		printf("Erreur.\n");
+		array[i] = min;
+		i++;
+		min++;
 	}
-	return (range);
+	*range = array;
+	return (array);
 }
 int main(void)
 {

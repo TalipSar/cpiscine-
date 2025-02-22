@@ -6,7 +6,7 @@ char	*ft_strdup(char *src)
 	char	*dest;
 	int		i;
 	       
-	dest = malloc(sizeof(*src));
+	dest = malloc(sizeof(char) * (strlen(src) + 1));
 
 	if (dest == NULL)
 	{
@@ -26,7 +26,7 @@ char	*ft_strdup(char *src)
 int	main(void)
 {
 	char src[] = "Salutation";
-	ft_strdup(src);
-	printf("%s", src);
+	char *dup = ft_strdup(src);
+	printf("%s", dup);
 }
 */
