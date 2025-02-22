@@ -10,38 +10,88 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int	calculate_total_length(int size, char **strs, char *sep)
+{
+	int	total_len;
+	int	i;
+
+	total_len = 0;
+	i = 0;
+	while (i < size)
+	{
+		total_len += strlen(strs[i]);
+		if (i < size - 1)
+			total_len += strlen(sep);
+		i++;
+	}
+	return (total_len);
+}
+
+char	*fill_result_string(int size, char **strs, char *sep, int total_len)
+{
+	int		i;
+	int		j;
+	char	*result;
+
+	i = 0;
+	j = 0;
+	result = malloc(sizeof(char) * (total_len + 1));
+	if (!result)
+		return (NULL);
+	total_len = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (strs[i][j] != '\0')
+			result[total_len++] = strs[i][j++];
+		if (i < size - 1)
+		{
+			j = 0;
+			while (sep[j] != '\0')
+				result[total_len++] = sep[j++];
+		}
+		i++;
+	}
+	result[total_len] = '\0';
+	return (result);
+}
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int	i;
-	int	j;
-	int	k;
-	char		joinedStr[12];
+	int		total_len;
+	char	*result;
 
-	while (size > 0 && **strs)
+	if (size == 0)
 	{
-		i = 0;
-		k = 0;
-		while (i < size)
-		{
-			j = 0;
-			while (strs[i][j] != '\0')
-			{
-				joinedStr[k] = strs[i][j];
-				j++;
-			}
-			joinedStr[k++] = '-';
-			k += j;
-			i++;
-		}
+		result = malloc(1);
+		if (result != NULL)
+			result[0] = '\0';
+		return (result);
 	}
-	printf("%s", joinedStr );
+	total_len = calculate_total_length(size, strs, sep);
+	return (fill_result_string(size, strs, sep, total_len));
 }
-
-int	main(void)
+/*
+#include <stdio.h>
+int main(void)
 {
-	char **stt = {"Salut", "Sanglot", "Signe"};
-	char sep = '-';
-	ft_strjoin(2, stt, &sep);
+    char *strs[] = {"Hello", "world", "this", "is", "a", "test"};
+    int size = 6;
+    char *sep = "-";
+
+    char *result = ft_strjoin(size, strs, sep);
+    if (result != NULL)
+    {
+        printf("Résultat : %s\n", result);
+        free(result);
+    }
+    else
+    {
+        printf("Erreur d'allocation mémoire.\n");
+    }
+    return 0;
 }
+*/
