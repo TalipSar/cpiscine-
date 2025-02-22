@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 16:14:51 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/22 12:40:18 by tsaritas         ###   ########.fr       */
+/*   Created: 2025/02/22 14:04:54 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/22 14:34:00 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-int	ft_fibonacci(int index)
+int	ft_sqrt(int nb)
 {
-	if (index < 0)
-	{
-		return (-1);
-	}
-	else if (index == 0)
+	int	i;
+
+	if (nb <= 0)
 	{
 		return (0);
 	}
-	else if (index == 1 || index == 2)
+	if (nb == 1)
 	{
 		return (1);
 	}
-	else
+	i = 0;
+	while (i <= nb / 2 && i <= 46341)
 	{
-		return (ft_fibonacci(index -1) + ft_fibonacci(index - 2));
+		if (i * i == nb)
+		{
+			return (i);
+		}
+		i++;
 	}
+	return (0);
 }
 /*
+#include <stdio.h>
 int	main(void)
 {
-	printf("%d", ft_fibonacci(10));
-	return (0);
+	int nb = ft_sqrt(4);
+	printf("%d", nb);
 }
 */
