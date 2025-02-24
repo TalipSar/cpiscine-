@@ -14,27 +14,27 @@
 
 char	*ft_strcat(char *dest, char *src, char *sep)
 {
-	int	i;
-	int	j;
+	unsigned int	destlen;
+	unsigned int	i;
 
+	destlen = 0;
 	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
+	while (dest[destlen] != '\0')
+		destlen++;
+	while (src[i] != '\0')
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	j = 0;
-	while (src[j])
-	{
-		dest[i] = sep[j];
-		j++;
+		dest[destlen] = src[i];
+		destlen++;
 		i++;
 	}
-	dest[i] = '\0';
+	i = 0;
+	while (src[i])
+	{
+		dest[destlen] = sep[i];
+		i++;
+		destlen++;
+	}
+	dest[destlen] = '\0';
 	return (dest);
 }
 
