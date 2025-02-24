@@ -3,21 +3,19 @@
 
 int	*ft_range(int min, int max)
 {
+	int	i;
 	int	*array;
 	if(min >= max)
 	{
-		array = NULL;
-		return (array);
+		return (0);
 	}
 	array = malloc(sizeof(int) * (max - min));
-	if (array == NULL)
+	i = 0;
+	while (min < max )
 	{
-		return (NULL);
-	}
-	while (max > min)
-	{
-		array[max - min - 1] = max - 1;
-		max--;
+		array[i] = min;
+		i++;
+		min++;
 	}
 	return (array);
 }
