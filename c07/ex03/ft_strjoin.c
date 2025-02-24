@@ -14,8 +14,8 @@
 
 char	*ft_strcat(char *dest, char *src, char *sep)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -28,7 +28,7 @@ char	*ft_strcat(char *dest, char *src, char *sep)
 		j++;
 	}
 	j = 0;
-	while (sep[j])
+	while (src[j])
 	{
 		dest[i] = sep[j];
 		j++;
@@ -38,35 +38,28 @@ char	*ft_strcat(char *dest, char *src, char *sep)
 	return (dest);
 }
 
-int		ft_l(char *str)
+int	ft_single_len(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (*str)
+	while (str[i])
 	{
-		str++;
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
-int		ft_strlen(int size, char **strs)
+int	ft_strlen(int size, char **strs)
 {
-	int letter;
-	int i;
-	int j;
+	int	letter;
+	int	i;
 
 	letter = 1;
 	i = 0;
 	while (i < size)
 	{
-		j = 0;
-		while (strs[j])
-		{
-			letter++;
-			j++;
-		}
+		letter += ft_single_len(strs[i]);
 		i++;
 	}
 	return (letter);
@@ -84,7 +77,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		return (join);
 	}
 	len = ft_strlen(size, strs);
-	join = (char *)malloc((len + (size - 1) * ft_l(sep)) * sizeof(char *) + 1);
+	join = (char *)malloc((len + (size - 1) * ft_single_len(sep)) * sizeof(char *) + 1);
 	if (!join)
 		return (NULL);
 	join[0] = '\0';
@@ -106,12 +99,12 @@ int main(void)
 {
     char *strs[] = {"Hello", "world", "this", "is", "a", "test"};
     int size = 6;
-    char *sep = "-";
+    char *sep = "+";
 
     char *result = ft_strjoin(size, strs, sep);
     if (result != NULL)
     {
-        printf("Résultat : %s\n", result);
+        printf("%s\n", result);
         free(result);
     }
     else
