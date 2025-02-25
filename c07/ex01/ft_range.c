@@ -1,25 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/18 09:36:02 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/24 10:05:33 by tsaritas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
-//#include <stdio.h>
 
 int	*ft_range(int min, int max)
 {
-	int	i;
 	int	*array;
-	if(min >= max)
+
+	if (min >= max)
 	{
-		return (0);
+		array = NULL;
+		return (array);
 	}
 	array = malloc(sizeof(int) * (max - min));
-	i = 0;
-	while (min < max )
+	if (array == NULL)
 	{
-		array[i] = min;
-		i++;
-		min++;
+		return (NULL);
+	}
+	while (max > min)
+	{
+		array[max - min - 1] = max - 1;
+		max--;
 	}
 	return (array);
 }
 /*
+#include <stdio.h>
 int main(void)
 {
     int *range;
@@ -40,7 +55,7 @@ int main(void)
     }
     else
     {
-        printf("Erreur d'allocation ou intervalle incorrect.\n");
+        printf("Erreur\n");
     }
     return 0;
 }

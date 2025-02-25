@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/18 09:35:26 by tsaritas          #+#    #+#             */
+/*   Updated: 2025/02/24 10:03:39 by tsaritas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
-//#include <stdio.h>
 
 char	*ft_strdup(char *src)
 {
 	char	*dest;
 	int		i;
 
-	dest = malloc(sizeof(char) * (src + 1));
+	dest = (char *) malloc(sizeof * src + 1);
 	if (dest == NULL)
 	{
 		return (NULL);
@@ -21,10 +32,12 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
 	char src[] = "Salutation";
-	char *dup = ft_strdup(src);
-	printf("%s", dup);
+	ft_strdup(src);
+	printf("%s", src);
 }
 */
