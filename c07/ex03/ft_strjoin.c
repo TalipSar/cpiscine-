@@ -6,16 +6,42 @@
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 12:57:49 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/22 15:13:57 by tsaritas         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:58:02 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stdlib.h>
 
-char	*ft_strcat(char *dest, char *src, char *sep)
+int	ft_sl(char *str)
 {
-	unsigned int	destlen;
-	unsigned int	i;
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+int	ft_strlen(int size, char **strs)
+{
+	int	len;
+	int	i;
+
+	len = 0;
+	i = 0;
+	while (i < size)
+	{
+		len += ft_sl(strs[i]);
+		i++;
+	}
+	return (len);
+}
+
+char	*ft_strcat(char *dest, char *src, char *sep, int is_last)
+{
+	int	destlen;
+	int	i;
 
 	destlen = 0;
 	i = 0;
@@ -27,81 +53,56 @@ char	*ft_strcat(char *dest, char *src, char *sep)
 		destlen++;
 		i++;
 	}
-	i = 0;
-	while (src[i])
+	if (!is_last)
 	{
-		dest[destlen] = sep[i];
-		i++;
-		destlen++;
+		i = 0;
+		while (sep[i] != '\0')
+		{
+			dest[destlen] = sep[i];
+			i++;
+			destlen++;
+		}
 	}
 	dest[destlen] = '\0';
 	return (dest);
 }
 
-int	ft_single_len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-int	ft_strlen(int size, char **strs)
-{
-	int	letter;
-	int	i;
-
-	letter = 1;
-	i = 0;
-	while (i < size)
-	{
-		letter += ft_single_len(strs[i]);
-		i++;
-	}
-	return (letter);
-}
-
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	char	*join;
-	int		len;
 	int		i;
+	int		total;
 
 	if (size == 0)
 	{
-		join = (char *)malloc(sizeof(char));
+		join = (char *)malloc(1);
+		if (join == NULL)
+			return (NULL);
+		join[0] = '\0';
 		return (join);
 	}
-	len = ft_strlen(size, strs);
-	join = (char *)malloc((len + (size - 1) * ft_single_len(sep)) * sizeof(char *) + 1);
-	if (!join)
+	total = ft_strlen(size, strs) + (size - 1) * ft_sl(sep);
+	join = (char *)malloc(sizeof(char) * (total + 1));
+	if (join == NULL)
 		return (NULL);
 	join[0] = '\0';
 	i = 0;
 	while (i < size)
 	{
-		if (i == size - 1)
-			join = ft_strcat(join, strs[i], "\0");
-		else
-			join = ft_strcat(join, strs[i], sep);
+		join = ft_strcat(join, strs[i], sep, (i == size - 1));
 		i++;
 	}
 	return (join);
 }
-
-
+/*
 #include <stdio.h>
 int main(void)
 {
-    char *strs[] = {"Hello", "world", "this", "is", "a", "test"};
-    int size = 6;
-    char *sep = "+";
+    char *s1[] = {"Mot1", "Mot2", "Mot3"};
+    int size = 3;
+    char *sep = "********";
 
-    char *result = ft_strjoin(size, strs, sep);
+    char *result = ft_strjoin(size, s1, sep);
     if (result != NULL)
     {
         printf("%s\n", result);
@@ -109,8 +110,8 @@ int main(void)
     }
     else
     {
-        printf("Erreur d'allocation mémoire.\n");
+        printf("Erreur mémoire.\n");
     }
     return 0;
 }
-
+*/

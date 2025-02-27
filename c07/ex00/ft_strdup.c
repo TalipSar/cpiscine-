@@ -6,18 +6,32 @@
 /*   By: tsaritas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:35:26 by tsaritas          #+#    #+#             */
-/*   Updated: 2025/02/24 10:03:39 by tsaritas         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:32:58 by tsaritas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
+int	ft_strlen(char *src)
+{
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
 char	*ft_strdup(char *src)
 {
 	char	*dest;
 	int		i;
+	int		j;
 
-	dest = (char *) malloc(sizeof * src + 1);
+	j = ft_strlen(src);
+	dest = (char *) malloc(sizeof(char) * (j + 1));
 	if (dest == NULL)
 	{
 		return (NULL);
